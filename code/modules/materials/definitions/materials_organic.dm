@@ -251,6 +251,7 @@
 	hardness = MATERIAL_RIGID
 	weight = 18
 	value = 1
+	fuel_quality = 0.5
 
 /material/bone/fish
 	name = MATERIAL_BONE_FISH

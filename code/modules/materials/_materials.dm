@@ -81,7 +81,8 @@
 	var/luminescence
 	var/list/alloy_materials     // If set, material can be produced via alloying these materials in these amounts.
 	var/units_per_sheet = SHEET_MATERIAL_AMOUNT
-
+	var/fuel_quality = 0
+	
 	// Placeholder vars for the time being, todo properly integrate windows/light tiles/rods.
 	var/wire_product
 	var/list/window_options = list()

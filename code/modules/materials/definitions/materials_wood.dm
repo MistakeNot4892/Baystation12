@@ -30,6 +30,7 @@
 				)
 	sale_price = 1
 	value = 3
+	fuel_quality = 0.7
 
 /material/wood/holographic
 	name = "holo" + MATERIAL_WOOD
