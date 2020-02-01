@@ -135,11 +135,6 @@ ARMCHAIR(yellow)
 	title = "bar stool"
 	result_type = /obj/item/stool/bar
 
-/datum/stack_recipe/furniture/bed
-	title = "bed"
-	result_type = /obj/structure/bed
-	req_amount = 2
-
 /datum/stack_recipe/furniture/pew
 	title = "pew, right"
 	result_type = /obj/structure/bed/chair/pew
@@ -149,21 +144,6 @@ ARMCHAIR(yellow)
 	title = "pew, left"
 	result_type = /obj/structure/bed/chair/pew/left
 	req_amount = 4
-
-/datum/stack_recipe/furniture/table_frame
-	title = "table frame"
-	result_type = /obj/structure/table
-	time = 10
-
-/datum/stack_recipe/furniture/rack
-	title = "rack"
-	result_type = /obj/structure/table/rack
-
-/datum/stack_recipe/furniture/closet
-	title = "closet"
-	result_type = /obj/structure/closet
-	req_amount = 2
-	time = 15
 
 /datum/stack_recipe/furniture/canister
 	title = "canister"

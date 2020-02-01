@@ -1,3 +1,6 @@
+GLOBAL_LIST_INIT(grille_blend_objects,   list(/obj/machinery/door, /turf/simulated/wall))
+GLOBAL_LIST_INIT(grille_noblend_objects, list(/obj/machinery/door/window))
+
 /obj/structure/grille
 	name = "grille"
 	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
@@ -10,30 +13,35 @@
 	layer = BELOW_OBJ_LAYER
 	explosion_resistance = 1
 	rad_resistance_modifier = 0.1
-	var/init_material = MAT_STEEL
+	material = MAT_STEEL
+	handle_generic_blending = TRUE
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+
 	var/health = 10
 	var/destroyed = 0
+	var/list/connections
+	var/list/other_connections
+	
+/obj/structure/grille/clear_connections()
+	connections = null
+	other_connections = null
 
-	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
-	noblend_objects = list(/obj/machinery/door/window)
+/obj/structure/grille/set_connections(dirs, other_dirs)
+	connections = dirs_to_corner_states(dirs)
+	other_connections = dirs_to_corner_states(other_dirs)
 
-/obj/structure/grille/get_material()
-	return material
-
-/obj/structure/grille/Initialize(mapload, var/new_material)
+/obj/structure/grille/update_materials(var/keep_health)
 	..()
-	. = INITIALIZE_HINT_LATELOAD
-	if(!new_material)
-		new_material = init_material
-	material = SSmaterials.get_material_datum(new_material)
-	if(!istype(material))
-		..()
-		return INITIALIZE_HINT_QDEL
-
-	name = "[material.display_name] grille"
 	desc = "A lattice of [material.display_name] rods, with screws to secure it to the floor."
-	color =  material.icon_colour
-	health = max(1, round(material.integrity/15))
+	if(!keep_health)
+		health = max(1, round(material.integrity/15))
+	
+/obj/structure/grille/Initialize()
+	. = ..()
+	if(!istype(material))
+		. = INITIALIZE_HINT_QDEL
+	if(. != INITIALIZE_HINT_QDEL)
+		. = INITIALIZE_HINT_LATELOAD
 
 /obj/structure/grille/LateInitialize()
 	..()
@@ -44,8 +52,8 @@
 	qdel(src)
 
 /obj/structure/grille/on_update_icon()
+	..()
 	var/on_frame = is_on_frame()
-
 	overlays.Cut()
 	if(destroyed)
 		if(on_frame)
@@ -57,17 +65,19 @@
 		icon_state = ""
 		if(on_frame)
 			for(var/i = 1 to 4)
-				if(other_connections[i] != "0")
-					I = image(icon, "grille_other_onframe[connections[i]]", dir = 1<<(i-1))
+				var/conn = connections ? connections[i] : "0"
+				if(other_connections && other_connections[i] != "0")
+					I = image(icon, "grille_other_onframe[conn]", dir = 1<<(i-1))
 				else
-					I = image(icon, "grille_onframe[connections[i]]", dir = 1<<(i-1))
+					I = image(icon, "grille_onframe[conn]", dir = 1<<(i-1))
 				overlays += I
 		else
 			for(var/i = 1 to 4)
-				if(other_connections[i] != "0")
-					I = image(icon, "grille_other[connections[i]]", dir = 1<<(i-1))
+				var/conn = connections ? connections[i] : "0"
+				if(other_connections && other_connections[i] != "0")
+					I = image(icon, "grille_other[conn]", dir = 1<<(i-1))
 				else
-					I = image(icon, "grille[connections[i]]", dir = 1<<(i-1))
+					I = image(icon, "grille[conn]", dir = 1<<(i-1))
 				overlays += I
 
 /obj/structure/grille/Bumped(atom/user)
@@ -251,7 +261,7 @@
 /obj/structure/grille/cult
 	name = "cult grille"
 	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it."
-	init_material = MAT_CULT
+	material = MAT_CULT
 
 /obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group)

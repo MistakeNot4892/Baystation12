@@ -7,7 +7,6 @@
 	var/state = 0
 	var/health = 100
 	var/cover = 50 //how much cover the girder provides against projectiles.
-	var/material/reinf_material
 	var/reinforcing = 0
 
 /obj/structure/girder/Initialize()
@@ -210,10 +209,6 @@
 	icon_state = "reinforced"
 	reinforcing = 0
 
-/obj/structure/girder/proc/dismantle()
-	new /obj/item/stack/material/steel(get_turf(src))
-	qdel(src)
-
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if (MUTATION_HULK in user.mutations)
 		visible_message("<span class='danger'>[user] smashes [src] apart!</span>")
@@ -244,8 +239,11 @@
 	health = 250
 	cover = 70
 
-/obj/structure/girder/cult/dismantle()
-	qdel(src)
+/obj/structure/girder/cult/dismantle(var/do_not_destroy)
+	material = null
+	reinf_material = null
+	parts_type = null
+	. = ..()
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W))
