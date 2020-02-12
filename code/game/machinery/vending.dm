@@ -587,14 +587,6 @@
 	icon_state = "fridge_dark"
 	icon_deny = "fridge_dark-deny"
 	products = list(/obj/item/chems/food/drinks/glass2/square = 10,
-					/obj/item/chems/food/drinks/glass2/rocks = 10,
-					/obj/item/chems/food/drinks/glass2/shake = 10,
-					/obj/item/chems/food/drinks/glass2/cocktail = 10,
-					/obj/item/chems/food/drinks/glass2/shot = 10,
-					/obj/item/chems/food/drinks/glass2/pint = 10,
-					/obj/item/chems/food/drinks/glass2/mug = 10,
-					/obj/item/chems/food/drinks/glass2/wine = 10,
-					/obj/item/chems/food/drinks/glass2/coffeecup/metal = 8,
 					/obj/item/chems/food/drinks/flask/barflask = 5,
 					/obj/item/chems/food/drinks/flask/vacuumflask = 5,
 					/obj/item/chems/food/drinks/bottle/gin = 5,
@@ -611,7 +603,6 @@
 					/obj/item/chems/food/drinks/bottle/melonliquor = 5,
 					/obj/item/chems/food/drinks/bottle/bluecuracao = 5,
 					/obj/item/chems/food/drinks/bottle/absinthe = 5,
-					/obj/item/chems/food/drinks/bottle/specialwhiskey = 5,
 					/obj/item/chems/food/drinks/bottle/bottleofnothing =5,
 					/obj/item/chems/food/drinks/bottle/champagne = 5,
 					/obj/item/chems/food/drinks/bottle/herbal = 5,
@@ -740,14 +731,14 @@
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	products = list(/obj/item/chems/food/drinks/cans/cola = 10,/obj/item/chems/food/drinks/cans/space_mountain_wind = 10,
-					/obj/item/chems/food/drinks/cans/dr_gibb = 10,/obj/item/chems/food/drinks/cans/starkist = 10,
+					/obj/item/chems/food/drinks/cans/dr_gibb = 10,/obj/item/chems/food/drinks/cans/indrelbreakfast = 10,
 					/obj/item/chems/food/drinks/cans/waterbottle = 10,/obj/item/chems/food/drinks/cans/space_up = 10,
 					/obj/item/chems/food/drinks/cans/iced_tea = 10, /obj/item/chems/food/drinks/cans/grape_juice = 10,
 					/obj/item/chems/food/drinks/juicebox/apple = 10, /obj/item/chems/food/drinks/juicebox/orange = 10, 
 					/obj/item/chems/food/drinks/juicebox/grape = 10)
 	contraband = list(/obj/item/chems/food/drinks/cans/thirteenloko = 5, /obj/item/chems/food/snacks/liquidfood = 6)
 	prices = list(/obj/item/chems/food/drinks/cans/cola = 1,/obj/item/chems/food/drinks/cans/space_mountain_wind = 1,
-					/obj/item/chems/food/drinks/cans/dr_gibb = 1,/obj/item/chems/food/drinks/cans/starkist = 1,
+					/obj/item/chems/food/drinks/cans/dr_gibb = 1,/obj/item/chems/food/drinks/cans/indrelbreakfast = 1,
 					/obj/item/chems/food/drinks/cans/waterbottle = 2,/obj/item/chems/food/drinks/cans/space_up = 1,
 					/obj/item/chems/food/drinks/cans/iced_tea = 1,/obj/item/chems/food/drinks/cans/grape_juice = 1,
 					/obj/item/chems/food/drinks/juicebox/apple = 1, /obj/item/chems/food/drinks/juicebox/orange = 1, 
@@ -773,7 +764,6 @@
 					/obj/item/storage/mre/random = 8,
 					/obj/item/storage/mre/menu9 = 4,
 					/obj/item/storage/mre/menu10 = 4,
-					/obj/item/chems/pill/diet = 8,
 					/obj/item/towel/random = 8)
 
 	prices = list(/obj/item/chems/food/drinks/milk/smallcarton = 3,
@@ -785,7 +775,6 @@
 					/obj/item/storage/mre/random = 50,
 					/obj/item/storage/mre/menu9 = 50,
 					/obj/item/storage/mre/menu10 = 50,
-					/obj/item/chems/pill/diet = 25,
 					/obj/item/towel/random = 40)
 
 	contraband = list(/obj/item/chems/syringe/steroid = 4)
@@ -902,15 +891,14 @@
 	base_type = /obj/machinery/vending/medical
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
-	products = list(/obj/item/chems/glass/bottle/antitoxin = 4,/obj/item/chems/glass/bottle/inaprovaline = 4,
-					/obj/item/chems/glass/bottle/stoxin = 4,/obj/item/chems/glass/bottle/toxin = 4,
-					/obj/item/chems/syringe/antiviral = 4,/obj/item/chems/syringe = 12,
+	products = list(/obj/item/chems/glass/bottle/antitoxin = 4,/obj/item/chems/glass/bottle/adrenaline = 4,
+					/obj/item/chems/glass/bottle/sedatives = 4,/obj/item/chems/glass/bottle/toxin = 4,
+					/obj/item/chems/syringe/antibiotic = 4,/obj/item/chems/syringe = 12,
 					/obj/item/scanner/health = 5,/obj/item/chems/glass/beaker = 4, /obj/item/chems/dropper = 2,
 					/obj/item/stack/medical/advanced/bruise_pack = 3, /obj/item/stack/medical/advanced/ointment = 3, /obj/item/stack/medical/splint = 2,
 					/obj/item/chems/hypospray/autoinjector/pain = 4)
 	contraband = list(/obj/item/clothing/mask/chewable/candy/lolli/meds = 8,
-					/obj/item/chems/pill/tox = 3,/obj/item/chems/pill/stox = 4,/obj/item/chems/pill/antitox = 6,
-					/obj/item/chems/hypospray/autoinjector/combatpain = 2)
+					/obj/item/chems/pill/tox = 3,/obj/item/chems/pill/stox = 4,/obj/item/chems/pill/antitox = 6)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 
@@ -935,13 +923,13 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
-		/obj/item/chems/pill/paracetamol = 4,
+		/obj/item/chems/pill/painkillers = 4,
 		/obj/item/storage/med_pouch/trauma,
 		/obj/item/storage/med_pouch/burn,
 		/obj/item/storage/med_pouch/oxyloss,
 		/obj/item/storage/med_pouch/toxin
 		)
-	contraband = list(/obj/item/chems/syringe/antitoxin = 4,/obj/item/chems/syringe/antiviral = 4,/obj/item/chems/pill/tox = 1)
+	contraband = list(/obj/item/chems/syringe/antitoxin = 4,/obj/item/chems/syringe/antibiotic = 4,/obj/item/chems/pill/tox = 1)
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed Mini"
@@ -995,7 +983,7 @@
 	base_type = /obj/machinery/vending/hydronutrients
 	products = list(/obj/item/chems/glass/bottle/eznutrient = 6,/obj/item/chems/glass/bottle/left4zed = 4,/obj/item/chems/glass/bottle/robustharvest = 3,/obj/item/plantspray/pests = 20,
 					/obj/item/chems/syringe = 5,/obj/item/storage/plants = 5)
-	premium = list(/obj/item/chems/glass/bottle/ammonia = 10,/obj/item/chems/glass/bottle/diethylamine = 5)
+	premium = list(/obj/item/chems/glass/bottle/ammonia = 10)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 /obj/machinery/vending/hydronutrients/generic
@@ -1178,8 +1166,7 @@
 	icon_vend = "engi-vend"
 	base_type = /obj/machinery/vending/engineering
 	req_access = list(list(access_atmospherics,access_engine_equip))
-	products = list(/obj/item/chems/food/drinks/bottle/oiljug = 6,
-					/obj/item/storage/belt/utility = 4,/obj/item/clothing/glasses/meson = 4,/obj/item/clothing/gloves/insulated = 4, /obj/item/screwdriver = 12,
+	products = list(/obj/item/storage/belt/utility = 4,/obj/item/clothing/glasses/meson = 4,/obj/item/clothing/gloves/insulated = 4, /obj/item/screwdriver = 12,
 					/obj/item/crowbar = 12,/obj/item/wirecutters = 12,/obj/item/multitool = 12,/obj/item/wrench = 12,/obj/item/t_scanner = 12,
 					/obj/item/cell = 8, /obj/item/weldingtool = 8,/obj/item/clothing/head/welding = 8,
 					/obj/item/light/tube = 10,/obj/item/stock_parts/scanning_module = 5,/obj/item/stock_parts/micro_laser = 5,
@@ -1199,8 +1186,7 @@
 	icon_vend = "robotics-vend"
 	req_access = list(access_robotics)
 	base_type = /obj/machinery/vending/robotics
-	products = list(/obj/item/chems/food/drinks/bottle/oiljug = 5,
-					/obj/item/stack/cable_coil = 4,/obj/item/flash/synthetic = 4,/obj/item/cell = 4,/obj/item/scanner/health = 2,
+	products = list(/obj/item/stack/cable_coil = 4,/obj/item/flash/synthetic = 4,/obj/item/cell = 4,/obj/item/scanner/health = 2,
 					/obj/item/scalpel = 1,/obj/item/circular_saw = 1,/obj/item/tank/anesthetic = 2,/obj/item/clothing/mask/breath/medical = 5,
 					/obj/item/screwdriver = 2,/obj/item/crowbar = 2)
 	contraband = list(/obj/item/flash = 2)

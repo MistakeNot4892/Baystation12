@@ -74,6 +74,7 @@
 	pixel_x = -24
 	},
 /obj/item/material/clipboard,
+/obj/random/single/textbook,
 /turf/simulated/floor/carpet,
 /area/ship/scrap/command/fmate)
 "aI" = (
@@ -2135,7 +2136,7 @@
 /obj/item/storage/firstaid/adv,
 /obj/random/medical,
 /obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/chems/syringe/antiviral,
+/obj/item/chems/syringe/antibiotic,
 /obj/item/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
@@ -2430,7 +2431,9 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/computer/modular/preset/library,
+/obj/machinery/fabricator/book,
+/obj/item/stack/material/plastic/ten,
+/obj/item/stack/material/wood/ten,
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3439,7 +3442,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/structure/ladder/updown,
+/obj/structure/ladder,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/engineering)
 "ik" = (
@@ -5139,7 +5142,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/structure/ladder/up,
+/obj/structure/ladder,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	dir = 1
 	},
@@ -5980,10 +5983,10 @@
 /obj/item/flashlight/lamp,
 /obj/random_multi/single_item/captains_spare_id,
 /obj/item/spacecash/bundle/c1000,
-/obj/item/storage/bible/booze,
 /obj/machinery/light_switch{
 	pixel_y = 25
 	},
+/obj/random/single/textbook,
 /turf/simulated/floor/plating,
 /area/ship/scrap/hidden)
 "Gb" = (
@@ -6112,10 +6115,10 @@
 	pixel_x = 0;
 	pixel_y = -29
 	},
-/obj/item/storage/pill_bottle/antidexafen,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/antibiotics,
+/obj/item/storage/pill_bottle/painkillers,
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/kelotane,
+/obj/item/storage/pill_bottle/burn_meds,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "Is" = (
@@ -6592,7 +6595,6 @@
 /area/space)
 "Oq" = (
 /obj/structure/bed/chair/comfy/teal{
-	icon_state = "comfychair_teal";
 	dir = 1
 	},
 /obj/effect/landmark/start{

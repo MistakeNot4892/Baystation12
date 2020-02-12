@@ -14,6 +14,12 @@
 	var/author = "unknown"
 
 /obj/effect/decal/writing/Initialize(mapload, var/_age, var/_message, var/_author)
+	var/list/random_icon_states = icon_states(icon)
+	for(var/obj/effect/decal/writing/W in loc)
+		random_icon_states.Remove(W.icon_state)
+	if(random_icon_states.len)
+		icon_state = pick(random_icon_states)
+	SSpersistence.track_value(src, /datum/persistent/graffiti)
 	. = ..(mapload)
 	if(!isnull(_age))
 		graffiti_age = _age
@@ -21,22 +27,15 @@
 	if(!isnull(author))
 		author = _author
 
-/obj/effect/decal/writing/Initialize()
-	var/list/random_icon_states = icon_states(icon)
-	for(var/obj/effect/decal/writing/W in loc)
-		random_icon_states.Remove(W.icon_state)
-	if(random_icon_states.len)
-		icon_state = pick(random_icon_states)
-	SSpersistence.track_value(src, /datum/persistent/graffiti)
-	. = ..()
-
 /obj/effect/decal/writing/Destroy()
 	SSpersistence.forget_value(src, /datum/persistent/graffiti)
 	. = ..()
 
 /obj/effect/decal/writing/examine(mob/user)
 	. = ..(user)
-	to_chat(user,  "It reads \"[message]\".")
+	var/processed_message = user.handle_reading_literacy(user, message)
+	if(processed_message)
+		to_chat(user,  "It reads \"[processed_message]\".")
 
 /obj/effect/decal/writing/attackby(var/obj/item/thing, var/mob/user)
 	if(isWelder(thing))

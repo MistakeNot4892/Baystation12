@@ -8,7 +8,6 @@
 	contact_levels = list(1, 2, 3, 4)
 	player_levels = list(1, 2, 3, 4)
 
-
 	station_name  = "Tradeship Ivenmoth"
 	station_short = "Ivenmoth"
 
@@ -62,3 +61,4 @@
 	SStrade.traders += new /datum/trader/xeno_shop
 	SStrade.traders += new /datum/trader/medical
 	SStrade.traders += new /datum/trader/mining
+	SStrade.traders += new /datum/trader/books

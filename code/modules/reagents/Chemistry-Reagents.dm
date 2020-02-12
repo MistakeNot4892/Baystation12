@@ -13,6 +13,7 @@
 	var/scannable = 0 // Shows up on health analyzers.
 	var/color = "#000000"
 	var/color_weight = 1
+	var/alpha = 255
 	var/flags = 0
 	var/hidden_from_codex
 
@@ -91,7 +92,7 @@
 	if(overdose && (location != CHEM_TOUCH))
 		var/overdose_threshold = overdose * (flags & IGNORE_MOB_SIZE? 1 : MOB_MEDIUM/M.mob_size)
 		if(volume > overdose_threshold)
-			overdose(M, alien)
+			affect_overdose(M, alien)
 
 	//determine the metabolism rate
 	var/removed = metabolism
@@ -109,7 +110,7 @@
 	M.chem_doses[type] = M.chem_doses[type] + effective
 	if(effective >= (metabolism * 0.1) || effective >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
 		switch(location)
-			if(CHEM_BLOOD)
+			if(CHEM_INJECT)
 				affect_blood(M, alien, effective)
 			if(CHEM_INGEST)
 				affect_ingest(M, alien, effective)
@@ -129,7 +130,7 @@
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
-/datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
+/datum/reagent/proc/affect_overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustToxLoss(REM)
 	return

@@ -8,7 +8,7 @@
 		breathe()
 
 /mob/living/carbon/proc/breathe(var/active_breathe = 1)
-	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
+
 	if(!need_breathe()) return
 
 	var/datum/gas_mixture/breath = null
@@ -58,7 +58,7 @@
 
 	var/datum/gas_mixture/environment
 	if(loc)
-		environment = loc.return_air_for_internal_lifeform()
+		environment = loc.return_air()
 
 	if(environment)
 		breath = environment.remove_volume(volume_needed)
@@ -83,7 +83,7 @@
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
-			smoke.reagents.trans_to_mob(src, 5, CHEM_BLOOD, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_INJECT, copy = 1)
 			// I dunno, maybe the reagents enter the blood stream through the lungs?
 			break // If they breathe in the nasty stuff once, no need to continue checking
 

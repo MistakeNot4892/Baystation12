@@ -104,7 +104,7 @@
 /turf/simulated/wall/r_wall,
 /area/lar_maria/cells)
 "ap" = (
-/obj/structure/ladder/up,
+/obj/structure/ladder,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
 /area/lar_maria/morgue)
@@ -217,7 +217,7 @@
 /turf/simulated/floor/tiled,
 /area/lar_maria/vir_hallway)
 "ay" = (
-/obj/machinery/smartfridge/chemistry/virology,
+/obj/machinery/smartfridge/chemistry,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_main)
 "az" = (
@@ -621,7 +621,7 @@
 /obj/structure/table/glass,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
-/obj/item/chems/spray/sterilizine,
+/obj/item/chems/spray/antiseptic,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_main)
 "bK" = (
@@ -1924,7 +1924,7 @@
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_aux)
 "eX" = (
-/obj/machinery/smartfridge/chemistry/virology,
+/obj/machinery/smartfridge/chemistry,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_aux)

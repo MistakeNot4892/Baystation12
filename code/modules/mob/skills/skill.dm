@@ -76,34 +76,36 @@ GLOBAL_LIST_EMPTY(skills)
 
 // ONLY SKILL DEFINITIONS BELOW THIS LINE
 // Category: Organizational
-
-/decl/hierarchy/skill/organizational/bureaucracy
-	ID = "bureaucracy"
-	name = "Bureaucracy"
-	desc = "Your ability to write and complete paperwork, navigate complex organiztions, and understand laws and regulations."
-	levels = list( "Unskilled"			= "You can usually fill out basic paperwork, if with a few errors. You have a vague understanding of the law, gleaned mostly from the news and personal experience.",
-						"Basic"				= "You are familiar with the paperwork needed to do your job, and can navigate it well. You have some understanding of the law as it applies to you and those around you.",
-						"Trained"			= "You can navigate most paperwork thrown at you, even if you are unfamiliar with it. You have a good working understanding of the law and any regulations or procedures relevant to you.",
-						"Experienced"		= "With your experience, you can easily create paperwork for any eventuality, and write reports which are clear and understandable. You have an excellent knowledge of the law, possibly including formal legal training.<BR> - You can speak and understand legalese.",
-						"Master"		= "You can make paperwork dance to your bidding, and navigate the most byzantine bureaucratic structures with ease and familiarity. Your reports are works of literature. Your knowledge of the law is both broad and intimate, and you may be certified to practice law.")
-
-/decl/hierarchy/skill/organizational/bureaucracy/update_special_effects(mob/mob, level)
-	mob.remove_language(LANGUAGE_LEGALESE)
-	if(level >= SKILL_EXPERT)
-		mob.add_language(LANGUAGE_LEGALESE)
+/decl/hierarchy/skill/organizational/literacy
+	ID = "literacy"
+	name = "Literacy"
+	desc = "Your ability to read and write."
+	levels = list(
+		"Unskilled"   = "You are completely incapable of reading or writing.",
+		"Basic"       = "With time, effort and patience, you are able to read and write at a very simple level.",
+		"Trained"     = "You can read and write fluently, without delays or too many misunderstandings.",
+		"Experienced" = "You can quickly and easily digest complex information, and spend less time for a higher benefit from reading textbooks.",
+		"Master"      = "Your mastery of the written word is such that you are able to produce your own textbooks for others to use. You can write a textbook about any skill you have personally trained in."
+	)
 
 /decl/hierarchy/skill/organizational/finance
 	ID = "finance"
 	name = "Finance"
 	desc = "Your ability to manage money and investments."
-	levels = list( "Unskilled"			= "Your understanding of money starts and ends with personal finance. While you are able to perform basic transactions, you get lost in the details, and can find yourself ripped off on occasion.<br>- You get some starting money. Its amount increases with level.<br>- You can use the verb \"Appraise\" to see the value of different objects.",
-						"Basic"				= "You have some limited understanding of financial transactions, and will generally be able to keep accurate records. You have little experience with investment, and managing large sums of money will likely go poorly for you.",
-						"Trained"			= "You are good at managing accounts, keeping records, and arranging transactions. You have some familiarity with mortgages, insurance, stocks, and bonds, but may be stumped when facing more complicated financial devices.",
-						"Experienced"		= "With your experience, you are familiar with any financial entities you may run across, and are a shrewd judge of value. More often than not, investments you make will pan out well.",
-						"Master"		= "You have an excellent knowledge of finance, will often make brilliant investments, and have an instinctive feel for interstellar economics. Financial instruments are weapons in your hands. You likely have professional experience in the finance industry.")
+	levels = list(
+		"Unskilled"   = "Your understanding of money starts and ends with personal finance. While you are able to perform basic transactions, you get lost in the details, and can find yourself ripped off on occasion.<br>- You get some starting money. Its amount increases with level.<br>- You can use the verb \"Appraise\" to see the value of different objects.",
+		"Basic"       = "You have some limited understanding of financial transactions, and will generally be able to keep accurate records. You have little experience with investment, and managing large sums of money will likely go poorly for you.",
+		"Trained"     = "You are good at managing accounts, keeping records, and arranging transactions. You have some familiarity with mortgages, insurance, stocks, and bonds, but may be stumped when facing more complicated financial devices.",
+		"Experienced" = "With your experience, you are familiar with any financial entities you may run across, and are a shrewd judge of value. More often than not, investments you make will pan out well.<BR> - You can speak and understand Legalese.",
+		"Master"      = "You have an excellent knowledge of finance, will often make brilliant investments, and have an instinctive feel for interstellar economics. Financial instruments are weapons in your hands. You likely have professional experience in the finance industry."
+	)
+
+/decl/hierarchy/skill/organizational/finance/update_special_effects(mob/mob, level)
+	mob.remove_language(LANGUAGE_LEGALESE)
+	if(level >= SKILL_EXPERT)
+		mob.add_language(LANGUAGE_LEGALESE)
 
 // Category: General
-
 /decl/hierarchy/skill/general/EVA
 	ID = "EVA"
 	name = "Extra-vehicular activity"
@@ -315,7 +317,7 @@ GLOBAL_LIST_EMPTY(skills)
 	name = "Medicine"
 	desc = "Covers an understanding of the human body and medicine. At a low level, this skill gives a basic understanding of applying common types of medicine, and a rough understanding of medical devices like the health analyzer. At a high level, this skill grants exact knowledge of all the medicine available on the installation, as well as the ability to use complex medical devices like the body scanner or mass spectrometer."
 	levels = list( "Unskilled"			= "You know first aid, such as how to apply a bandage or ointment to an injury. You can use an autoinjector designed for civilian use, probably by reading the directions printed on it. You can tell when someone is badly hurt and needs a doctor; you can see whether someone has a badly broken bone, is having trouble breathing, or is unconscious. You may have trouble telling the difference between unconscious and dead at distance.<br>- You can use first aid supplies found in kits and pouches, including autoinjectors.",
-						"Basic"				= "You've taken a nursing or EMT course. You can stop bleeding, do CPR, apply a splint, take someone's pulse, apply trauma and burn treatments, and read a handheld health scanner. You probably know that Dylovene helps poisoning and Dexalin helps people with breathing problems; you can use a syringe or start an IV. You've been briefed on the symptoms of common emergencies like a punctured lung, appendicitis, alcohol poisoning, or broken bones, and though you can't treat them, you know that they need a doctor's attention. You can recognize most emergencies as emergencies and safely stabilize and transport a patient.<br>- You can fully operate Defibrillators, Health Analyzers, IV drips, and Syringes.",
+						"Basic"				= "You've taken a nursing or EMT course. You can stop bleeding, do CPR, apply a splint, take someone's pulse, apply trauma and burn treatments, and read a handheld health scanner. You probably know that antitoxins help poisoning and oxygen helps people with breathing problems; you can use a syringe or start an IV. You've been briefed on the symptoms of common emergencies like a punctured lung, appendicitis, alcohol poisoning, or broken bones, and though you can't treat them, you know that they need a doctor's attention. You can recognize most emergencies as emergencies and safely stabilize and transport a patient.<br>- You can fully operate Defibrillators, Health Analyzers, IV drips, and Syringes.",
 						"Trained"			= "You are an experienced EMT, an experienced nurse, or a medical resident. You know how to treat most illnesses and injuries, though exotic illnesses and unusual injuries may still stump you. You have probably begun to specialize in some sub-field of medicine. In emergencies, you can think fast enough to keep your patients alive, and even when you can't treat a patient, you know how to find someone who can. You can use a full-body scanner, and you know something's off about a patient with an alien parasite or cortical borer.<br>- You can fully operate Sleepers.<br>- You can apply splints without failing. You can perform simple surgery steps if you have Experienced Anatomy skill",
 						"Experienced"		= "You are a senior nurse or paramedic, or a practicing doctor. You know how to use all of the medical devices available to treat a patient. Your deep knowledge of the body and medications will let you diagnose and come up with a course of treatment for most ailments. You can perform a full-body scan thoroughly and find important information.<br>- You can fully operate Body Scanners. You can perform all surgery steps if you have Experienced Anatomy skill",
 						"Master"		= "You are an experienced doctor or an expert nurse or EMT. You've seen almost everything there is to see when it comes to injuries and illness and even when it comes to something you haven't seen, you can apply your wide knowledge base to put together a treatment. In a pinch, you can do just about any medicine-related task, but your specialty, whatever it may be, is where you really shine.")

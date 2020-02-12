@@ -40,7 +40,7 @@
 #define     IMPCHEM_HUD 6 // Chemical implant.
 #define    IMPTRACK_HUD 7 // Tracking implant.
 #define SPECIALROLE_HUD 8 // AntagHUD image.
-#define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
+#define  STATUS_HUD_OOC 9 // STATUS_HUD without check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
 
 // Shuttle moving status.
@@ -197,12 +197,6 @@
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
-//Virus badness defines
-#define VIRUS_MILD			1
-#define VIRUS_COMMON		2	//Random events don't go higher (mutations aside)
-#define VIRUS_ENGINEERED	3
-#define VIRUS_EXOTIC		4	//Usually adminbus only
-
 //Error handler defines
 #define ERROR_USEFUL_LEN 2
 
@@ -280,3 +274,12 @@
 #define SURGERY_NEEDS_INCISION   16
 #define SURGERY_NEEDS_RETRACTED  32
 #define SURGERY_NEEDS_ENCASEMENT 64
+
+// Structure interaction flags
+#define TOOL_INTERACTION_ANCHOR      1
+#define TOOL_INTERACTION_DECONSTRUCT 2
+#define TOOL_INTERACTION_WIRING      4
+#define TOOL_INTERACTION_ALL         (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT | TOOL_INTERACTION_WIRING)   
+
+//Inserts 'a' or 'an' before X in ways \a doesn't allow
+#define ADD_ARTICLE(X) "[(lowertext(copytext(X, 1, 2)) in list("a", "e", "i", "o", "u")) ? "an" : "a"] [X]"

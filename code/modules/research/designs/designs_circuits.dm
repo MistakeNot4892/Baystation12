@@ -74,13 +74,6 @@
 	build_path = /obj/item/stock_parts/circuitboard/sleeper
 	sort_string = "FACAE"
 
-/datum/design/circuit/cryo_cell
-	name = "cryo cell"
-	id = "cryo_cell"
-	req_tech = list(TECH_ENGINEERING = 3, TECH_BIO = 5, TECH_DATA = 3)
-	build_path = /obj/item/stock_parts/circuitboard/cryo_cell
-	sort_string = "FACAF"
-
 /datum/design/circuit/crewconsole
 	name = "crew monitoring console"
 	id = "crewconsole"
@@ -240,40 +233,47 @@
 	build_path = /obj/item/stock_parts/circuitboard/autolathe/micro
 	sort_string = "HABAF"
 
+/datum/design/circuit/autobinder
+	name = "autobinder board"
+	id = "autobinder"
+	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/stock_parts/circuitboard/autolathe/book
+	sort_string = "HABAG"
+
 /datum/design/circuit/mining_console
 	name = "mining console board"
 	id = "mining_console"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/stock_parts/circuitboard/mineral_processing
-	sort_string = "HABAG"
+	sort_string = "HABAH"
 
 /datum/design/circuit/mining_processor
 	name = "mining processor board"
 	id = "mining_processor"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/stock_parts/circuitboard/mining_processor
-	sort_string = "HABAH"
+	sort_string = "HABAI"
 
 /datum/design/circuit/mining_unloader
 	name = "ore unloader board"
 	id = "mining_unloader"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/stock_parts/circuitboard/mining_unloader
-	sort_string = "HABAI"
+	sort_string = "HABAJ"
 
 /datum/design/circuit/mining_stacker
 	name = "sheet stacker board"
 	id = "mining_stacker"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/stock_parts/circuitboard/mining_stacker
-	sort_string = "HABAJ"
+	sort_string = "HABAK"
 
 /datum/design/circuit/suspension_gen
 	name = "suspension generator"
 	id = "suspension_gen"
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4)
 	build_path = /obj/item/stock_parts/circuitboard/suspension_gen
-	sort_string = "HABAK"
+	sort_string = "HABAL"
 
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"

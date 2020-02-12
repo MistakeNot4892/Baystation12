@@ -17,7 +17,7 @@
 		if(reagents.total_volume)
 			if(M.reagents)
 				var/contained_reagents = reagents.get_reagents()
-				var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
+				var/trans = reagents.trans_to_mob(M, 30, CHEM_INJECT)
 				admin_inject_log(user, M, src, contained_reagents, trans)
 
 /*
@@ -29,4 +29,4 @@
 
 /obj/item/pen/reagent/sleepy/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/vecuronium_bromide, 15)
+	reagents.add_reagent(/datum/reagent/paralytics, 15)

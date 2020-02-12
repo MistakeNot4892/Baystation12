@@ -213,15 +213,15 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/ethanol/whiskey, 100)
 
-/obj/item/chems/food/drinks/bottle/specialwhiskey
-	name = "Special Blend Whiskey"
-	desc = "Just when you thought regular whiskey was good... This silky, amber goodness has to come along and ruin everything."
+/obj/item/chems/food/drinks/bottle/dinnishfirewater
+	name = "Old Dinnish Firewater"
+	desc = "This rich, smooth, hideously expensive beverage was distilled in old Dinland.  I hope they're still producing under their new government."
 	icon_state = "whiskeybottle2"
 	center_of_mass = @"{'x':16,'y':3}"		
 
-/obj/item/chems/food/drinks/bottle/specialwhiskey/Initialize()
+/obj/item/chems/food/drinks/bottle/dinnishfirewater/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/ethanol/specialwhiskey, 100)
+	reagents.add_reagent(/datum/reagent/ethanol/aged_whiskey, 100)
 
 /obj/item/chems/food/drinks/bottle/vodka
 	name = "Tunguska Triple Distilled"
@@ -566,15 +566,3 @@
 /obj/item/chems/food/drinks/bottle/small/gingerbeer/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/drink/gingerbeer, 50)
-
-//Probably not the right place for it, but no idea where else to put it without making a brand new DM and slogging through making vars from scratch.
-
-/obj/item/chems/food/drinks/bottle/oiljug
-	name = "oil jug"
-	desc = "A plastic jug of engine oil. Not for human consumption."
-	icon_state = "oil"
-	isGlass = 0
-
-/obj/item/chems/food/drinks/bottle/oiljug/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/lube/oil, 100)

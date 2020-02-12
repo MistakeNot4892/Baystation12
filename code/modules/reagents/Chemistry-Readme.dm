@@ -115,7 +115,7 @@ About the Holder:
 			Checks mob's clothing if [clothes] is 1 and transfers [amount] reagents to mob's skin.
 			Don't call this directly. Call apply_to() instead.
 
-		trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0)
+		trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_INJECT, var/multiplier = 1, var/copy = 0)
 			Transfers [amount] reagents to the mob's appropriate holder, depending on [type]. Ignores protection.
 
 		trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
@@ -162,7 +162,7 @@ About Reagents:
 			Ditto when touching.
 
 		dose
-			How much of the reagent has been processed, limited by [max_dose]. Used for reagents with varying effects (e.g. ethanol or rezadone) and overdosing.
+			How much of the reagent has been processed, limited by [max_dose]. Used for reagents with varying effects (e.g. ethanol) and overdosing.
 
 		max_dose
 			Maximum amount of reagent that has ever been in a mob. Exists so dose won't grow infinitely when small amounts of reagent are added over time.

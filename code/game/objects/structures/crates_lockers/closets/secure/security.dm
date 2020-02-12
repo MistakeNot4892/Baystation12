@@ -205,7 +205,7 @@
 	req_access = list(access_captain)
 
 /obj/structure/closet/secure_closet/injection/WillContain()
-	return list(/obj/item/chems/syringe/ld50_syringe/choral = 2)
+	return list(/obj/item/chems/syringe/ld50_syringe = 2)
 
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
@@ -226,7 +226,7 @@
 /obj/structure/closet/secure_closet/courtroom/WillContain()
 	return list(
 		/obj/item/clothing/shoes/brown,
-		/obj/item/paper/Court = 3,
+		/obj/item/paper/court = 3,
 		/obj/item/pen ,
 		/obj/item/clothing/suit/judgerobe,
 		/obj/item/clothing/head/powdered_wig ,

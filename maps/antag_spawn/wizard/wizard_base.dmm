@@ -194,7 +194,6 @@
 /area/map_template/wizard_station)
 "aD" = (
 /obj/structure/table/woodentable,
-/obj/machinery/computer/modular/preset/library,
 /obj/item/radio/intercom/syndicate{
 	dir = 4;
 	pixel_x = -22
@@ -273,7 +272,7 @@
 /obj/structure/closet,
 /obj/item/chems/food/drinks/bottle/bottleofnothing,
 /obj/item/chems/food/drinks/bottle/pwine,
-/obj/item/chems/food/drinks/bottle/specialwhiskey,
+/obj/item/chems/food/drinks/bottle/dinnishfirewater,
 /obj/item/chems/food/drinks/bottle/cognac,
 /turf/unsimulated/floor{
 	icon_state = "lino"

@@ -12,6 +12,7 @@ var/list/worths = list(
 					/obj/item/chems/food/snacks/human = -300,
 					/obj/item/chems/food/snacks/sliceable = -15,
 					/obj/item/chems/food/snacks/slice = -3,
+					/obj/item/chems/food/snacks/fish/mollusc = -2,
 					/obj/item/chems/food/drinks/bottle = -11,
 					/obj/item/chems/food/drinks = -8,
 					/obj/item/chems/glass/rag = -5,
@@ -482,7 +483,6 @@ var/list/worths = list(
 					/obj/item/assembly = 50,
 					/obj/item/uv_light = 150,
 					/obj/item/eftpos = 30,
-					/obj/item = 90,
 //ORGANS,
 					/obj/item/organ/internal/heart = 1200,
 					/obj/item/organ/internal/brain = 1200,
@@ -526,7 +526,7 @@ var/list/worths = list(
 					/obj/item/bee_pack = 200,
 					/obj/item/weedkiller = 30,
 					/obj/item/sign/medipolma = 1500,
-					/obj/item = 5,
+					/obj/item/mollusc = 2,
 //STRUCTURES,
 					/obj/structure/dogbed = 15,
 					/obj/structure/ore_box = 12,
@@ -707,8 +707,9 @@ var/list/worths = list(
 					/obj/machinery/beehive = -500,
 					/obj/machinery/portable_atmospherics/hydroponics/soil = 1, //its dirt,
 					/obj/machinery/portable_atmospherics/hydroponics = -2300,
-					/obj/machinery/libraryscanner = -1000,
-					/obj/machinery/bookbinder = -1200,
 					/obj/machinery = -1000,
-					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
+//BOOKS,
+					/obj/item/book/skill = 60
+					)
 
+					//Must be in descending order. Child before parents, otherwise it doesn't work.

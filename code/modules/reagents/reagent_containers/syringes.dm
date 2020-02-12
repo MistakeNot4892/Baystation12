@@ -243,7 +243,7 @@
 		if(target != trackTarget && target.loc != trackTarget)
 			return
 	admin_inject_log(user, target, src, reagents.get_reagents(), amount_per_transfer_from_this)
-	var/trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
+	var/trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INJECT)
 
 	if(target != user)
 		user.visible_message("<span class='warning'>\the [user] injects \the [target] with [visible_name]!</span>", "<span class='notice'>You inject \the [target] with [trans] units of the solution. \The [src] now contains [src.reagents.total_volume] units.</span>")
@@ -289,7 +289,7 @@
 
 	var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
 	var/contained_reagents = reagents.get_reagents()
-	var/trans = reagents.trans_to_mob(target, syringestab_amount_transferred, CHEM_BLOOD)
+	var/trans = reagents.trans_to_mob(target, syringestab_amount_transferred, CHEM_INJECT)
 	if(isnull(trans)) trans = 0
 	admin_inject_log(user, target, src, contained_reagents, trans, violent=1)
 	break_syringe(target, user)
@@ -321,17 +321,23 @@
 		return
 	..()
 
+/obj/item/chems/syringe/ld50_syringe/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/toxin/heartstopper, 60)
+	mode = SYRINGE_INJECT
+	update_icon()
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/chems/syringe/inaprovaline
-	name = "Syringe (inaprovaline)"
-	desc = "Contains inaprovaline - used to stabilize patients."
+/obj/item/chems/syringe/adrenaline
+	name = "Syringe (adrenaline)"
+	desc = "Contains adrenaline - used to stabilize patients."
 
-/obj/item/chems/syringe/inaprovaline/Initialize()
+/obj/item/chems/syringe/adrenaline/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/inaprovaline, 15)
+	reagents.add_reagent(/datum/reagent/adrenaline, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
@@ -341,17 +347,17 @@
 
 /obj/item/chems/syringe/antitoxin/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/dylovene, 15)
+	reagents.add_reagent(/datum/reagent/antitoxins, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/chems/syringe/antiviral
-	name = "Syringe (spaceacillin)"
-	desc = "Contains antiviral agents."
+/obj/item/chems/syringe/antibiotic
+	name = "Syringe (antibiotics)"
+	desc = "Contains antibiotic agents."
 
-/obj/item/chems/syringe/antiviral/Initialize()
+/obj/item/chems/syringe/antibiotic/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/spaceacillin, 15)
+	reagents.add_reagent(/datum/reagent/antibiotics, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
@@ -361,17 +367,9 @@
 
 /obj/item/chems/syringe/drugs/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/space_drugs, 5)
-	reagents.add_reagent(/datum/reagent/mindbreaker, 5)
-	reagents.add_reagent(/datum/reagent/cryptobiolin, 5)
-	mode = SYRINGE_INJECT
-	update_icon()
-
-/obj/item/chems/syringe/ld50_syringe/choral
-
-/obj/item/chems/syringe/ld50_syringe/choral/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/chloralhydrate, 60)
+	reagents.add_reagent(/datum/reagent/psychoactives, 5)
+	reagents.add_reagent(/datum/reagent/hallucinogenics, 5)
+	reagents.add_reagent(/datum/reagent/presyncopics, 5)
 	mode = SYRINGE_INJECT
 	update_icon()
 
@@ -382,7 +380,7 @@
 /obj/item/chems/syringe/steroid/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/adrenaline, 5)
-	reagents.add_reagent(/datum/reagent/hyperzine, 10)
+	reagents.add_reagent(/datum/reagent/amphetamines, 10)
 
 
 // TG ports

@@ -45,7 +45,7 @@
 	scan["radiation"] = H.radiation
 	scan["genetic"] = H.getCloneLoss()
 	scan["paralysis"] = H.paralysis
-	scan["immune_system"] = H.virus_immunity()
+	scan["immune_system"] = H.get_immunity()
 	scan["worms"] = H.has_brain_worms()
 
 	scan["reagents"] = list()
@@ -227,22 +227,11 @@
 		dat += subdat
 
 		subdat = null
-		//Immune System
-		/*
-			<tr><td colspan='2'><center>Antibody levels and immune system performance are at 100% of baseline.</center></td></tr>
-			<tr><td colspan='2'><span class='bad'><center>Viral Pathogen detected in blood stream.</center></span></td></tr>
-			<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>
-		*/
 		dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
 
 		if(scan["worms"])
 			dat += "<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>"
 
-		//Reagent scan
-		/*
-			<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>
-			<tr><td colspan='2'>10u dexalin plus</td></tr>
-		*/
 		var/other_reagent = FALSE
 
 		for(var/list/R in scan["reagents"])

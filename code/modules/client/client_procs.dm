@@ -355,23 +355,12 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
 	getFiles(
 		'html/search.js',
 		'html/panels.css',
 		'html/spacemag.css',
 		'html/images/loading.gif',
-		'html/images/ntlogo.png',
-		'html/images/bluentlogo.png',
-		'html/images/sollogo.png',
-		'html/images/terralogo.png',
-		'html/images/talisman.png',
-		'html/images/exologo.png',
-		'html/images/xynlogo.png',
-		'html/images/daislogo.png',
-		'html/images/eclogo.png',
-		'html/images/fleetlogo.png',
-		'html/images/sfplogo.png'
+		'html/images/talisman.png'
 		)
 
 	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
@@ -414,27 +403,53 @@ client/verb/character_setup()
 	var/last_view_x_dim = 7
 	var/last_view_y_dim = 7
 
-/client/verb/OnResize()
-	set hidden = 1
+/client/verb/force_onresize_view_update()
+	set name = "Force Client View Update"
+	set src = usr
+	set category = "Debug"
+	OnResize()
+
+/client/verb/show_winset_debug_values()
+	set name = "Show Client View Debug Values"
+	set src = usr
+	set category = "Debug"
+
 	var/divisor = text2num(winget(src, "mapwindow.map", "icon-size")) || world.icon_size
 	var/winsize_string = winget(src, "mapwindow.map", "size")
-	last_view_x_dim = round(text2num(winsize_string) / divisor)
-	last_view_y_dim = round(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor)
-	view = "[last_view_x_dim]x[last_view_y_dim]"
+
+	to_chat(usr, "Current client view: [view]")
+	to_chat(usr, "Icon size: [divisor]")
+	to_chat(usr, "xDim: [round(text2num(winsize_string) / divisor)]")
+	to_chat(usr, "yDim: [round(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor)]")
+
+/client/verb/OnResize()
+	set hidden = 1
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/handle_resize, src), 5, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/proc/handle_resize(client/C)
+	if (!C)
+		return
+	var/divisor = text2num(winget(C, "mapwindow.map", "icon-size")) || world.icon_size
+	var/winsize_string = winget(C, "mapwindow.map", "size")
+	C.last_view_x_dim = Clamp(round(text2num(winsize_string) / divisor), 9, 42)
+	C.last_view_y_dim = Clamp(round(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor), 9, 42)
+	if(C.last_view_x_dim % 2 == 0) C.last_view_x_dim--
+	if(C.last_view_y_dim % 2 == 0) C.last_view_y_dim--
+	C.view = "[C.last_view_x_dim]x[C.last_view_y_dim]"
 
 	// Reset eye/perspective
-	var/last_perspective = perspective
-	perspective = MOB_PERSPECTIVE
-	if(perspective != last_perspective)
-		perspective = last_perspective
-	var/last_eye = eye
-	eye = mob
-	if(eye != last_eye)
-		eye = last_eye
+	var/last_perspective = C.perspective
+	C.perspective = MOB_PERSPECTIVE
+	if(C.perspective != last_perspective)
+		C.perspective = last_perspective
+	var/last_eye = C.eye
+	C.eye = C.mob
+	if(C.eye != last_eye)
+		C.eye = last_eye
 
 	// Recenter skybox and lighting.
-	set_skybox_offsets(last_view_x_dim, last_view_y_dim)
-	if(mob)
-		if(mob.l_general)
-			mob.l_general.fit_to_client_view(last_view_x_dim, last_view_y_dim)
-		mob.reload_fullscreen()
+	C.set_skybox_offsets(C.last_view_x_dim, C.last_view_y_dim)
+	if(C.mob)
+		if(C.mob.l_general)
+			C.mob.l_general.fit_to_client_view(C.last_view_x_dim, C.last_view_y_dim)
+		C.mob.reload_fullscreen()

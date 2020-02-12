@@ -57,7 +57,7 @@
 		if(reagents.total_volume)
 			if(H.reagents)
 				var/contained_reagents = reagents.get_reagents()
-				var/trans = reagents.trans_to_mob(H, 15, CHEM_BLOOD)
+				var/trans = reagents.trans_to_mob(H, 15, CHEM_INJECT)
 				admin_inject_log(usr, H, src, contained_reagents, trans)
 	return
 
@@ -70,7 +70,8 @@
 
 /obj/item/clothing/ring/reagent/sleepy/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/chloralhydrate, 15) // Less than a sleepy-pen, but still enough to knock someone out
+	reagents.add_reagent(/datum/reagent/paralytics, 10) // Less than a sleepy-pen, but still enough to knock someone out
+	reagents.add_reagent(/datum/reagent/sedatives, 5)  
 
 /////////////////////////////////////////
 //Seals and Signet Rings
