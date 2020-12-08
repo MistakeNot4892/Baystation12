@@ -53,3 +53,6 @@ MAXIMUM_STAMINA_RECOVERY 5
 
 ## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
 #USE_LOYALTY_IMPLANTS
+
+## Remove the # to define a different cap for aspect points in chargen.
+#MAX_CHARACTER_ASPECTS 5

@@ -1,0 +1,68 @@
+/decl/aspect/leadpoisoning
+	name = ASPECT_RADHARDENED
+	desc = "Those ancient water pipes have left you resistant to radiation."
+
+/decl/aspect/hardy
+	name = ASPECT_HARDY
+	desc = "You were born with thick skin."
+	use_icon_state = "kitchen_3"
+	aspect_flags = ASPECTS_PHYSICAL
+
+/decl/aspect/hardy/apply(var/mob/living/carbon/human/holder)
+	. = ..()
+	if(.)
+		holder.maxHealth += (holder.species.total_health * 0.1)
+
+/decl/aspect/thickbones
+	name = ASPECT_THICKBONES
+	desc = "You always were big-boned."
+	parent_name = ASPECT_HARDY
+	use_icon_state = "kitchen_3"
+	aspect_flags = ASPECTS_PHYSICAL
+
+/decl/aspect/scarred
+	name = ASPECT_SCARRED
+	desc = "There are so many scars on your hide that weapons have a hard time getting through."
+	use_icon_state = "kitchen_3"
+	parent_name = ASPECT_HARDY
+	aspect_flags = ASPECTS_PHYSICAL
+
+/decl/aspect/hotstuff
+	name = ASPECT_HOTSTUFF
+	desc = "You're pretty good at coping with burns."
+	use_icon_state = "kitchen_3"
+	parent_name = ASPECT_HARDY
+	aspect_flags = ASPECTS_PHYSICAL
+
+/decl/aspect/sharpeyed
+	name = ASPECT_SHARPEYED
+	desc = "You can see well in darkness."
+	aspect_flags = ASPECTS_PHYSICAL
+
+/decl/aspect/company_man
+	name = ASPECT_COMPANYMAN
+	desc = "The Company has your back, and ensures you have plenty of cash to throw around."
+	aspect_cost = 3
+
+/decl/aspect/junkie
+	name = ASPECT_JUNKIE
+	desc = "You've got the goods."
+	aspect_cost = 2
+	aspect_flags = ASPECTS_EQUIPMENT
+
+/decl/aspect/green_thumb
+	name = ASPECT_GREENTHUMB
+	desc = "You love plants. Like, a lot. Someone needs to have an intervention."
+	aspect_cost = 2
+	aspect_flags = ASPECTS_EQUIPMENT
+
+/decl/aspect/ninja
+	name = ASPECT_NINJA
+	desc = "You grew up as part of a performing troupe, and have a pretty good arm as a result."
+	aspect_cost = 2
+
+/decl/aspect/tribal
+	name = ASPECT_TRIBAL
+	desc = "You hail from an agrarian colony that hasn't really caught up to the rest of the pack just yet."
+	aspect_cost = 2
+	aspect_flags = ASPECTS_EQUIPMENT

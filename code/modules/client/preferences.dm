@@ -320,6 +320,17 @@ datum/preferences
 			if(O)
 				O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
 
+	character.personal_aspects = list()
+	character.personal_aspects_by_name = list()
+
+	for(var/aspect in aspects)
+		var/decl/aspect/A = aspects_by_name[aspect]
+		if(istype(A))
+			character.personal_aspects += A
+			character.personal_aspects_by_name[aspect] = TRUE
+	character.need_aspect_sort = TRUE
+	character.apply_aspects(ASPECTS_MENTAL|ASPECTS_PHYSICAL)
+
 	character.force_update_limbs()
 	character.update_mutations(0)
 	character.update_body(0)

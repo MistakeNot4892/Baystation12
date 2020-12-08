@@ -110,6 +110,7 @@ var/list/gamemode_cache = list()
 	var/revival_brain_life = -1
 
 	var/use_loyalty_implants = 0
+	var/max_character_aspects = 5
 
 	var/welder_vision = 1
 	var/generate_map = 0
@@ -719,6 +720,8 @@ var/list/gamemode_cache = list()
 			value = text2num(value)
 
 			switch(name)
+				if ("max_character_aspects")
+					config.max_character_aspects = text2num(value)
 				if("health_threshold_dead")
 					config.health_threshold_dead = value
 				if("revival_brain_life")
