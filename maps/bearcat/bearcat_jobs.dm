@@ -1,8 +1,5 @@
 /datum/map/bearcat
 	allowed_jobs = list(/datum/job/captain, /datum/job/chief_engineer, /datum/job/doctor, /datum/job/hop, /datum/job/cyborg, /datum/job/assistant, /datum/job/engineer)
-	species_to_job_whitelist = list(
-		/datum/species/vox = list(/datum/job/assistant)
-	)
 
 /datum/job/captain
 	supervisors = "the Merchant Code and your conscience"
