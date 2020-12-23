@@ -1,41 +1,24 @@
-#define ASCENT_COLONY_SHIP_NAME "\improper Ascent seedship"
-
 #include "ascent_areas.dm"
 #include "ascent_jobs.dm"
+#include "ascent_props.dm"
 #include "ascent_shuttles.dm"
 
 // Map template data.
-/datum/map_template/ruin/away_site/ascent_seedship
-	name = ASCENT_COLONY_SHIP_NAME
-	id = "awaysite_ascent_seedship"
-	description = "A small Ascent colony ship."
+/datum/map_template/ruin/away_site/ascent_caulship
+	name = "Ascent Caulship"
+	id = "awaysite_ascent_caulship"
+	description = "A small Ascent civilian ship."
 	suffixes = list("ascent/ascent-1.dmm")
 	cost = 0.5
-	shuttles_to_initialise = list(
-		/datum/shuttle/autodock/overmap/ascent, 
-		/datum/shuttle/autodock/overmap/ascent/two
-	)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ascent)
 	spawn_weight = 0.67
 
-// Overmap objects.
-/obj/effect/overmap/visitable/ship/ascent_seedship
-	name = ASCENT_COLONY_SHIP_NAME
-	desc = "Wake signature indicates a small to medium sized vessel of unknown design."
-	vessel_mass = 6500
-	fore_dir = WEST
-	max_speed = 1/(1 SECOND)
-	hide_from_reports = TRUE
-	initial_restricted_waypoints = list(
-		"Trichoptera" = list("nav_hangar_ascent_one"),
-		"Lepidoptera" = list("nav_hangar_ascent_two")
-	)
-
-/obj/effect/submap_landmark/joinable_submap/ascent_seedship
-	name = ASCENT_COLONY_SHIP_NAME
-	archetype = /decl/submap_archetype/ascent_seedship
+/obj/effect/submap_landmark/joinable_submap/ascent_caulship
+	name = "Ascent Caulship"
+	archetype = /decl/submap_archetype/ascent_caulship
 	submap_datum_type = /datum/submap/ascent
 
-/obj/effect/submap_landmark/joinable_submap/ascent_seedship/Initialize(mapload)
+/obj/effect/submap_landmark/joinable_submap/ascent_caulship/Initialize(mapload)
 	var/list/all_elements = list(
 		"Hydrogen",      "Helium",     "Lithium",     "Beryllium",    "Carbon",       "Nitrogen",      "Oxygen",
 		"Fluorine",      "Neon",       "Sodium",      "Magnesium",    "Silicon",      "Phosphorus",    "Sulfur",

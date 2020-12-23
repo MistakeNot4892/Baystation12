@@ -4,9 +4,9 @@
 /decl/webhook/submap_loaded/ascent
 	id = WEBHOOK_SUBMAP_LOADED_ASCENT
 
-/decl/submap_archetype/ascent_seedship
+/decl/submap_archetype/ascent_caulship
 	descriptor = "Ascent colony ship"
-	map = ASCENT_COLONY_SHIP_NAME
+	map = "Ascent Caulship"
 	blacklisted_species = null
 	whitelisted_species = null
 	crew_jobs = list(
@@ -108,21 +108,23 @@
 	title = "Ascent Gyne"
 	total_positions = 1
 	supervisors = "nobody but yourself"
-	info = "You are the Gyne of an independent Ascent vessel. Your hunting has brought you to this remote sector full of crawling primitives. Impose your will, found a new nest, and bring prosperity to your lineage."
+	info = "You are a Gyne of the Ascent, fleeing the murderous Kharmaani political sphere after your first molt. Your search for safe harbour has brought you to this remote unsettled sector. Find a safe nest, and bring prosperity to your lineage."
 	outfit_type = /decl/hierarchy/outfit/job/ascent
 	blacklisted_species = null
 	whitelisted_species = null
 	loadout_allowed = FALSE
 	is_semi_antagonist = TRUE
+	min_skill = list(
+		SKILL_EVA = SKILL_ADEPT,
+		SKILL_PILOT = SKILL_ADEPT,
+		SKILL_HAULING = SKILL_ADEPT,
+		SKILL_COMBAT = SKILL_ADEPT,
+		SKILL_WEAPONS = SKILL_ADEPT,
+		SKILL_SCIENCE = SKILL_ADEPT,
+		SKILL_MEDICAL = SKILL_BASIC
+	)
 	var/requires_supervisor = FALSE
 	var/set_species_on_join = SPECIES_MANTID_GYNE
-	min_skill = list(SKILL_EVA = SKILL_ADEPT,
-					SKILL_PILOT = SKILL_ADEPT,
-					SKILL_HAULING = SKILL_ADEPT,
-					SKILL_COMBAT = SKILL_ADEPT,
-					SKILL_WEAPONS = SKILL_ADEPT,
-					SKILL_SCIENCE = SKILL_ADEPT,
-					SKILL_MEDICAL = SKILL_BASIC)
 
 /datum/job/submap/ascent/is_position_available()
 	. = ..()
@@ -183,15 +185,17 @@
 	title = "Ascent Alate"
 	total_positions = 4
 	supervisors = "the Gyne"
-	info = "You are an Alate of an independent Ascent vessel. Your Gyne has directed you to this remote sector full of crawling primitives. Follow her instructions and bring prosperity to your nest-lineage."
+	info = "You are a young Alate of a new Gyne. She has led you to this remote sector to found a new nest. Follow her instructions and bring prosperity to your nest-lineage."
 	set_species_on_join = SPECIES_MANTID_ALATE
 	outfit_type = /decl/hierarchy/outfit/job/ascent/tech
 	requires_supervisor = "Ascent Gyne"
-	min_skill = list(SKILL_EVA = SKILL_ADEPT,
-					SKILL_HAULING = SKILL_ADEPT,
-					SKILL_COMBAT = SKILL_ADEPT,
-					SKILL_WEAPONS = SKILL_ADEPT,
-					SKILL_MEDICAL = SKILL_BASIC,)
+	min_skill = list(
+		SKILL_EVA = SKILL_ADEPT,
+		SKILL_HAULING = SKILL_ADEPT,
+		SKILL_COMBAT = SKILL_ADEPT,
+		SKILL_WEAPONS = SKILL_ADEPT,
+		SKILL_MEDICAL = SKILL_BASIC
+	)
 
 /datum/job/submap/ascent/drone
 	title = "Ascent Drone"
@@ -230,20 +234,20 @@
 					SKILL_MEDICAL = SKILL_BASIC)
 
 // Spawn points.
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship
 	name = "Ascent Gyne"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship/alate
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship/alate
 	name = "Ascent Alate"
 
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship/drone
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship/drone
 	name = "Ascent Drone"
 
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship/adjunct
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship/adjunct
 	name = "Serpentid Adjunct"
 
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship/queen
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship/queen
 	name = "Serpentid Queen"
 
 /*
@@ -254,7 +258,7 @@
 	info = "You are a Machine Intelligence of an independent Ascent vessel. The Gyne you assist, and her children, have wandered into this sector full of primitive bioforms. Try to keep them alive, and assist where you can."
 	set_species_on_join = /mob/living/silicon/ai/ascent
 
-/obj/effect/submap_landmark/spawnpoint/ascent_seedship/control
+/obj/effect/submap_landmark/spawnpoint/ascent_caulship/control
 	name = "Ascent Control Mind"
 
 /mob/living/silicon/ai/ascent
