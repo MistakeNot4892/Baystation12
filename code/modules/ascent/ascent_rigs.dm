@@ -376,6 +376,7 @@
 // Rigs and gear themselves.
 /obj/item/weapon/rig/mantid/seed
 	name = "alate support exosuit"
+	icon_state = "kexosuit_civ"
 	desc = "A powerful support exosuit with integrated power supply, weapon and atmosphere. It's closer to a mech than a rig."
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
@@ -401,6 +402,7 @@
 
 /obj/item/weapon/rig/mantid/gyne/seed
 	name = "gyne support exosuit"
+	icon_state = "kexosuit_civ"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
